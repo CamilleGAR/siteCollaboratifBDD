@@ -5,7 +5,7 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Titre</title>
+	<title>Page de connection</title>
 </head>
 <body>
 
@@ -14,11 +14,11 @@ session_start();
 		global $bdd;
 	?>
 
-	<p>Indentification<p>
+	<h1>Indentification</h1>
 	<form method="post"> 
-		<input type="text" name="pseudo" id="pseudo" placeholder="pseudo" required><br/>
-		<input type="text" name="password" id="password" placeholder="mot de passe" required><br/>
-		<input type="submit" name="envoye" id="envoye" value="S'identifier"><br/>
+		<input type="text" name="pseudo" placeholder="pseudo" required><br/>
+		<input type="text" name="password" placeholder="mot de passe" required><br/>
+		<input type="submit" name="envoye" value="S'identifier"><br/>
 	</form>
 
 	<a href="administrateur.php">Page Admin </a>
@@ -40,19 +40,19 @@ session_start();
 						$_SESSION['role'] = $compte['role'];	
 						$_SESSION['email'] = $compte['email'];
 
-						if ($_SESSION['role'] == Administrateur){
+						if ($_SESSION['role'] == 'Administrateur'){
 							header('Location: administrateur.php');
   							exit();
 						}
-						if ($_SESSION['role'] == Expert){
+						if ($_SESSION['role'] == 'Expert'){
 							header('Location: expert.php');
   							exit();
 						}
-						if ($_SESSION['role'] == Professeur){
+						if ($_SESSION['role'] == 'Professeur'){
 							header('Location: professeur.php');
   							exit();
 						}
-						if ($_SESSION['role'] == Eleve){
+						if ($_SESSION['role'] == 'Eleve'){
 							header('Location: eleve.php');
   							exit();
 						}
