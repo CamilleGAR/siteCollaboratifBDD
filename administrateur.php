@@ -1,28 +1,46 @@
 <?php
-session_start(); // On démarre la session AVANT toute chose
+session_start();
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Page administrateur</title>
+	<link rel="stylesheet" type="text/css" href="administrateur.css">
 </head>
 <body>
 
 
 	<?php
+		include 'deconnection.php';
 		include 'database.php';
 		global $bdd;
 	?>
 
 	<form method="post">
-		<input type="text" name="pseudo" id="pseudo" placeholder="pseudo" required><br/>
-		<input type="text" name="password" id="password" placeholder="mot de passe" required><br/>
-		<input type="text" name="nom" id="nom" placeholder="nom" required><br/>
-		<input type="text" name="prenom" id="prenom" placeholder="prenom" required><br/>
-		<input type="text" name="role" id="role" placeholder="role" required><br/>
-		<input type="email" name="email" id="email" placeholder="email" required><br/>
-		<input type="submit" name="envoye" id="envoye"><br/>
+		<input type="text" name="pseudo" placeholder="pseudo" required><br/>
+		<input type="text" name="password" placeholder="mot de passe" required><br/>
+		<input type="text" name="nom" placeholder="nom" required><br/>
+		<input type="text" name="prenom" placeholder="prenom" required><br/>
+		<select name="role" multiple>
+  			<optgroup label="role">
+    			<option value="Eleve" selected>eleve</option>
+    			<option value="Professeur">professeur</option>
+    			<option value="Expert">expert</option>
+    			<option value="Administrateur">administrateur</option>
+  			</optgroup>
+		</select><br/>	
+		<select name="domaine" multiple>
+  			<optgroup label="domaine">
+  				<option value="Aucun" selected>aucun</option>
+    			<option value="Mathematiques">mathématiques</option>
+    			<option value="Physique">physique</option>
+    			<option value="Informatique">informatique</option>
+    			<option value="Anglais">anglais</option>
+  			</optgroup>
+		</select><br/>	
+		<input type="email" name="email" placeholder="email" required><br/>
+		<input type="submit" name="envoye"><br/>
 	</form>
 
 	<?php
@@ -45,8 +63,9 @@ session_start(); // On démarre la session AVANT toute chose
 				$pseudoExiste = $verifPseudo->rowCount();
 
 				if(($emailExiste == 0) and ($pseudoExiste == 0)){
-					$requete = $bdd->prepare("INSERT INTO utilisateurs(pseudo, password, nom, prenom, role, email) VALUES(:pseudo, :password, :nom, :prenom, :role, :email)");
-					$requete->execute(['pseudo' => $pseudo, 'password' => $passwordCode, 'nom' => $nom, 'prenom' => $prenom, 'role' => $role, 'email' => $email]);
+					$requete = $bdd->prepare("INSERT INTO utilisateurs(pseudo, password, nom, prenom, role, email, domaine) VALUES(:pseudo, :password, :nom, :prenom, :role, :email, :domaine)");
+					$requete->execute(['pseudo' => $pseudo, 'password' => $passwordCode, 'nom' => $nom, 'prenom' => $prenom, 'role' => $role, 'email' => $email, 'domaine' => $domaine]);
+					echo $nom." ".$prenom." a été ajouté à la base de donnée";
 				}
 				else{
 					if ($pseudoExiste != 0){
