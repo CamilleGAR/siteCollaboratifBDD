@@ -1,9 +1,14 @@
+<?php
+session_start(); // On démarre la session AVANT toute chose
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Page administrateur</title>
 </head>
 <body>
+
 
 	<?php
 		include 'database.php';
@@ -26,27 +31,30 @@
 
 			extract($_POST);
 
-			$options = ['cost' => 12,];
-			$hashpass = password_hash($password, PASSWORD_BCRYPT, $options);
+			if (!empty($pseudo) && !empty($password) && !empty($nom) && !empty($prenom) && !empty($role) && !empty($email)){
 
-			$verifEmail = $bdd->prepare("SELECT email FROM utilisateurs WHERE email = :email");
-			$verifEmail->execute(['email' => $email]);
-			$emailExiste = $verifEmail->rowCount();
+				$options = ['cost' => 12,];
+				$passwordCode = password_hash($password, PASSWORD_BCRYPT, $options);
 
-			$verifPseudo = $bdd->prepare("SELECT pseudo FROM utilisateurs WHERE pseudo = :pseudo");
-			$verifPseudo->execute(['pseudo' => $pseudo]);
-			$pseudoExiste = $verifPseudo->rowCount();
+				$verifEmail = $bdd->prepare("SELECT email FROM utilisateurs WHERE email = :email");
+				$verifEmail->execute(['email' => $email]);
+				$emailExiste = $verifEmail->rowCount();
 
-			if(($emailExiste == 0) and ($pseudoExiste == 0)){
-				$requete = $bdd->prepare("INSERT INTO utilisateurs(pseudo, password, nom, prenom, role, email) VALUES(:pseudo, :password, :nom, :prenom, :role, :email)");
-				$requete->execute(['pseudo' => $pseudo, 'password' => $hashpass, 'nom' => $nom, 'prenom' => $prenom, 'role' => $role, 'email' => $email]);
-			}
-			else{
-				if ($pseudoExiste != 0){
-					echo "Ce Pseudo existe deja <br/>";
-				}				
-				if ($emailExiste != 0){
-					echo "Cet email existe deja <br/>";
+				$verifPseudo = $bdd->prepare("SELECT pseudo FROM utilisateurs WHERE pseudo = :pseudo");
+				$verifPseudo->execute(['pseudo' => $pseudo]);
+				$pseudoExiste = $verifPseudo->rowCount();
+
+				if(($emailExiste == 0) and ($pseudoExiste == 0)){
+					$requete = $bdd->prepare("INSERT INTO utilisateurs(pseudo, password, nom, prenom, role, email) VALUES(:pseudo, :password, :nom, :prenom, :role, :email)");
+					$requete->execute(['pseudo' => $pseudo, 'password' => $passwordCode, 'nom' => $nom, 'prenom' => $prenom, 'role' => $role, 'email' => $email]);
+				}
+				else{
+					if ($pseudoExiste != 0){
+						echo "Ce Pseudo existe deja <br/>";
+					}				
+					if ($emailExiste != 0){
+						echo "Cet email existe deja <br/>";
+					}
 				}
 			}
 		}
