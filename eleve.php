@@ -19,7 +19,8 @@ session_start();
 		include 'deconnection.php';
 
 	?>
-	
+
+
 
 	<form method="post"> 
 		<input type="submit" name="demande" value="Demander de l'aide"><br/>
@@ -49,19 +50,18 @@ session_start();
 			extract($_POST);
 
 			if (!empty($domaine) && !empty($message)){
-				$selectProf = $bdd->prepare("SELECT * FROM utilisateurs WHERE role = :role");
-				$selectProf->execute([':role' => "Professeur"]);
-				$prof = $selectProf->fetch();
 
-				$requete = $bdd->prepare("INSERT INTO aide(domaine, eleve, professeur, etat, texte) VALUES(:domaine, :eleve, :professeur, :etat, :texte)");
-				$requete->execute(['domaine' => $domaine, 'eleve' => $_SESSION['pseudo'], 'professeur' => $prof['pseudo'], 'etat' => "Demande envoyée", 'texte' => $message]);
+				$requete = $bdd->prepare("INSERT INTO aide(domaine, eleve, etat, texte) VALUES(:domaine, :eleve, :etat, :texte)");
+				$requete->execute(['domaine' => $domaine, 'eleve' => $_SESSION['pseudo'], 'etat' => "Demande envoyee", 'texte' => $message]);
 				echo "Demande envoyée";
 			}
 		}
 	?>
 
 
-
+<?php
+include 'demandesEnvoyees.php';
+?>
 
 
 
