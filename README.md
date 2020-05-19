@@ -48,11 +48,11 @@ Dans notre base de données, il existe trois tables :
 
 # SECURITE :
 
-Les mots de passe sont hashés grace à la fonction password_hash(). Quelqu'un ayant accès à la base de donnée ne peut donc pas les récupérer car les antécédents des mots de passes hashés sont impossibles à trouver. Quand on veut se connection, on utilise la fonction password_verify() pour vérifier la correspondance entre notre mot de passe et le hash enregistré.
+• Les mots de passe sont hashés grace à la fonction password_hash(). Quelqu'un ayant accès à la base de donnée ne peut donc pas les récupérer car les antécédents des mots de passes hashés sont impossibles à trouver. Quand on veut se connection, on utilise la fonction password_verify() pour vérifier la correspondance entre notre mot de passe et le hash enregistré.
 
-On utilise des variables de session. A chaque fois qu’on entre sur une nouvelle page, on vérifie que les variables de sessions existent et qu’elles donnent accès à cette page (S’il s’agit de la page administrateur, on vérifie que la personne soit bien un administrateur). Cela évite que l’on puisse taper nous-même l’adresse « localhost/administrateur.php » dans la barre de recherche sans s’être identifié sur la page d’accueil.
+• On utilise des variables de session. A chaque fois qu’on entre sur une nouvelle page, on vérifie que les variables de sessions existent et qu’elles donnent accès à cette page (S’il s’agit de la page administrateur, on vérifie que la personne soit bien un administrateur). Cela évite que l’on puisse taper nous-même l’adresse « localhost/administrateur.php » dans la barre de recherche sans s’être identifié sur la page d’accueil.
 
-Quand on est élève ou expert et qu’on sélectionne une demande d’aide, on est amené sur un page où on visualise toutes les réponses liées à cette demande. Pour cela, on doit conserver l’identifiant de la demande que l’on a sélectionnée. Cette conservation se fait par adresse url. Exemple : « http://localhost/dossier.php?id=1 ». Pour éviter que l’on puisse changer la valeur de l’id et ainsi accéder aux messages privés d’autres personnes, on vérifie que l’utilisateur est effectivement investi dans une demande d’aide ayant cet id.
+• Quand on est élève ou expert et qu’on sélectionne une demande d’aide, on est amené sur un page où on visualise toutes les réponses liées à cette demande. Pour cela, on doit conserver l’identifiant de la demande que l’on a sélectionnée. Cette conservation se fait par adresse url. Exemple : « http://localhost/dossier.php?id=1 ». Pour éviter que l’on puisse changer la valeur de l’id et ainsi accéder aux messages privés d’autres personnes, on vérifie que l’utilisateur est effectivement investi dans une demande d’aide ayant cet id.
 
 
 # DECONNECTION ET RETOUR :
