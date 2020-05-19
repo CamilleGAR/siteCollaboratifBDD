@@ -1,7 +1,7 @@
 Ce projet est un site web collaboratif ayant pour but d’aider les étudiants/professeurs/experts/administration à communiquer.
 
 
-GUIDE D’INSTALLATION :
+## GUIDE D’INSTALLATION :
 
 • Pour un essai en local, téléchargez WampServer.
 
@@ -20,7 +20,7 @@ GUIDE D’INSTALLATION :
 • Tapez « localhost » dans votre barre de recherche. Vous voilà sur le site fonctionnel.
 
 
-FONCTIONNEMENT :
+## FONCTIONNEMENT :
 
 Il existe quatre types d’utilisateurs : Les administrateur, les élèves, les professeurs, les experts.
 
