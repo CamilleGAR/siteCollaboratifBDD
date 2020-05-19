@@ -34,3 +34,15 @@ Il existe quatre types d’utilisateurs : Les administrateur, les élèves, les 
 
 Les élèves ainsi que les experts peuvent sélectionner une demande pour y répondre et voir l’historique de tous les messages relatifs à cette demande. Les réponses sont classées par date.
 
+
+# BASE DE DONNEE :
+
+Dans notre base de données, il existe trois tables :
+
+• La table « utilisateurs ». C’est une table simple qui répertorie le pseudo, password, nom, etc… des différents utilisateurs.
+
+• La table « aide ». C’est la table qui répertorie les demandes d’aide. Il y est écrit les personnes concernées (élève, expert, professeur), l’état de la demande (en cours, en attente, etc…), le texte de la demande et le domaine (mathématiques, etc…).
+
+• La table « reponse ». Cette table est liée à la table « aide ». Elle répertorie toutes les réponses liées à une demande d’aide. Pour chaque réponse, on trouve donc son texte, sa date, la personne qui a répondu, et l’id de l’« aide » correspondante.
+
+
