@@ -8,13 +8,16 @@ include 'deconnection.php';
 
 
 if ($_SESSION['role'] == 'Expert'){
+	?>
+	<a href="expert.php">Retour </a><br/>
+	<?php
 	$demande = $bdd->prepare("SELECT * FROM aide, utilisateurs WHERE aide.eleve = utilisateurs.pseudo AND aide.id = :id AND expert = :expert");
 	$demande ->execute([':id' => $_GET['id'], ':expert' => $_SESSION['pseudo']]);
 	$nb = $demande->rowCount();
 
 	if ($nb > 0){
 		$getEmail = $demande->fetch();
-		echo 'adresse mail de l eleve : '.$getEmail['email'];
+		echo "adresse mail de l'eleve : ".$getEmail['email'];
 		?>
 	<form method="post"> 
 		<textarea name="message" rows="8" cols="45">Réponse</textarea><br/>
@@ -41,13 +44,17 @@ if ($_SESSION['role'] == 'Expert'){
 				}
 
 			else {
-				echo 'reponse de leleve ';
+				echo "reponse de l'eleve ";
 			}
 
 			echo '('.$reponse['date'].') <br/>';
 			echo $reponse['texte'].'<br/><br/>';
 
 		}
+		$aides = $bdd->prepare("SELECT * FROM aide WHERE id = :id");
+		$aides ->execute([':id' => $_GET['id']]);
+		$aide = $aides->fetch();
+		echo "Message d'origine : ".$aide['texte'];
 	}
 
 	else{
@@ -56,13 +63,16 @@ if ($_SESSION['role'] == 'Expert'){
 }
 
 if ($_SESSION['role'] == 'Eleve'){
+	?>
+	<a href="eleve.php">Retour </a><br/>
+	<?php
 	$demande = $bdd->prepare("SELECT * FROM aide, utilisateurs WHERE aide.expert = utilisateurs.pseudo AND aide.id = :id AND eleve = :eleve");
 	$demande ->execute([':id' => $_GET['id'], ':eleve' => $_SESSION['pseudo']]);
 	$nb = $demande->rowCount();
 
 	if ($nb > 0){
 		$getEmail = $demande->fetch();
-		echo 'adresse mail de l expert : '.$getEmail['email'];
+		echo "adresse mail de l'expert : ".$getEmail['email'];
 		?>
 	<form method="post"> 
 		<textarea name="message" rows="8" cols="45">Réponse</textarea><br/>
@@ -85,7 +95,7 @@ if ($_SESSION['role'] == 'Eleve'){
 		while ($reponse = $reponses->fetch()){
 
 			if ($reponse['role'] == 'Expert'){
-				echo 'reponse de lexpert ';
+				echo "reponse de l'expert ";
 				}
 
 			else {
@@ -96,10 +106,14 @@ if ($_SESSION['role'] == 'Eleve'){
 			echo $reponse['texte'].'<br/><br/>';
 
 		}
+		$aides = $bdd->prepare("SELECT * FROM aide WHERE id = :id");
+		$aides ->execute([':id' => $_GET['id']]);
+		$aide = $aides->fetch();
+		echo "Message d'origine : ".$aide['texte'];
 	}
 
 	else{
-		echo 'Vous ny avez pas acces';
+		echo "Vous n'y avez pas acces";
 	}
 }
 
