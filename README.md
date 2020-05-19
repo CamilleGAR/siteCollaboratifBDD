@@ -1,1 +1,1 @@
-$2y$12$wPmQ63n9Q5OL0DV5m89qWOfO/rcnsFrDE0cII5it8.u6L6IiJvGNu
+INSERT INTO utilisateurs(pseudo, password, nom, prenom, role, email, domaine) VALUES("PseudoAdmin", "$2y$12$wPmQ63n9Q5OL0DV5m89qWOfO/rcnsFrDE0cII5it8.u6L6IiJvGNu", "PrenomAdmin", "NomAdmin", "Administrateur", "admin@admin", "Aucun");
