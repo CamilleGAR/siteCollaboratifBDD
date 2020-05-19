@@ -31,5 +31,6 @@ Il existe quatre types d’utilisateurs : Les administrateur, les élèves, les 
 • Les professeurs voient les demandes qui correspondent à leur domaine. Leur rôle est de rediriger les élèves vers un expert. Ainsi les professeurs de mathématiques voient les demandes en mathématiques et peuvent sélectionner un expert parmi la liste de tous les experts en mathématiques. Un fois un expert sélectionné, les demandes ne sont plus visibles par les professeurs.
 
 • Les experts voient la liste de toutes les demandes en attentes et de toutes les demandes auxquelles ils ont répondu.
+
 Les élèves ainsi que les experts peuvent sélectionner une demande pour y répondre et voir l’historique de tous les messages relatifs à cette demande. Les réponses sont classées par date.
 
