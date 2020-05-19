@@ -21,8 +21,6 @@ session_start();
 		<input type="submit" name="envoye" value="S'identifier"><br/>
 	</form>
 
-	<a href="administrateur.php">Page Admin </a>
-
 	<?php
 		if(isset($_POST['envoye'])){
 			extract($_POST);
@@ -39,6 +37,7 @@ session_start();
 						$_SESSION['prenom'] = $compte['prenom'];	
 						$_SESSION['role'] = $compte['role'];	
 						$_SESSION['email'] = $compte['email'];
+						$_SESSION['domaine'] = $compte['domaine'];
 
 						if ($_SESSION['role'] == 'Administrateur'){
 							header('Location: administrateur.php');
