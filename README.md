@@ -20,7 +20,7 @@ Ce projet est un site web collaboratif ayant pour but d’aider les étudiants/p
 • Tapez « localhost » dans votre barre de recherche. Vous voilà sur le site fonctionnel.
 
 
-# FONCTIONNEMENT :
+# UTILISATION :
 
 Il existe quatre types d’utilisateurs : Les administrateur, les élèves, les professeurs, les experts.
 
