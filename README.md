@@ -24,4 +24,4 @@ Ce projet est un site web collaboratif ayant pour but d’aider les étudiants/p
 
 Il existe quatre types d’utilisateurs : Les administrateur, les élèves, les professeurs, les experts.
 
-• Les administrateurs sont les seuls à pouvoir créer des comptes utilisateurs. C’est le principe de toutes les écoles, l’administration nous génère nos comptent en début d’année et nous les donne en main propre. Vous allez devoir utiliser le seul compte utilisateur existant (PseudoAdmin, PassAdmin) pour pouvoir en générer d’autres. Vous pourrez après supprimer celui par défaut.
+• Les administrateurs sont les seuls à pouvoir créer des comptes utilisateurs. C’est le principe de toutes les écoles. L’administration nous génère nos comptent en début d’année et nous les donne en main propre. Vous allez devoir utiliser le seul compte utilisateur existant (PseudoAdmin, PassAdmin) pour pouvoir en générer d’autres. Vous pourrez après supprimer celui par défaut.
