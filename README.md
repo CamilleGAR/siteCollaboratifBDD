@@ -53,4 +53,14 @@ On utilise des variables de session. A chaque fois qu’on entre sur une nouvell
 Quand on est élève ou expert et qu’on sélectionne une demande d’aide, on est amené sur un page où on visualise toutes les réponses liées à cette demande. Pour cela, on doit conserver l’identifiant de la demande que l’on a sélectionnée. Cette conservation se fait par adresse url. Exemple : « http://localhost/dossier.php?id=1 ». Pour éviter que l’on puisse changer la valeur de l’id et ainsi accéder aux messages privés d’autres personnes, on vérifie que l’utilisateur est effectivement investi dans une demande d’aide ayant cet id.
 
 
+# DECONNECTION ET RETOUR :
+
+Toutes les pages sont dotées de boutons « déconnection » et « retour ». Le bouton retour nous amène sur la page précédente en conservant les variables de session. Le bouton déconnection nous ramène sur la page d’accueil et efface toutes les variables de session existantes.
+
+
+# ACCES INTERDITS : 
+
+Si on essaie d’accéder à une page qui nous est normalement interdite par modification de l’url, un message nous indiquera que nous n’avons pas accès à cette page. Les vérifications se font comme expliqué dans la paragraphe securité.
+
+
 
