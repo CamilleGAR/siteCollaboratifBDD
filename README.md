@@ -60,7 +60,7 @@ Toutes les pages sont dotées de boutons « déconnection » et « retour ». Le
 
 # ACCES INTERDITS : 
 
-Si on essaie d’accéder à une page qui nous est normalement interdite, par modification de l’url, un message nous indiquera que nous n’avons pas accès à cette page. Les vérifications se font comme expliqué dans la paragraphe securité.
+Si on essaie d’accéder à une page qui nous est normalement interdite, par modification de l’url, un message nous indiquera que nous n’avons pas accès à cette page. Les vérifications se font comme expliqué dans le paragraphe securité.
 
 
 
