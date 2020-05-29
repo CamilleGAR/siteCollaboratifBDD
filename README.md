@@ -15,6 +15,8 @@ Ce projet est un site web collaboratif ayant pour but d’aider les étudiants/p
 
 • Connectez-vous avec « root » comme pseudo et aucun mot de passe.
 
+• Creez une nouvelle base de donnée nommée "sitebdd" et sélectionnez la.
+
 • Allez dans l’onglet « Importer » et importez-y le fichier sitebdd.sql du ZIP. Votre base de données est maintenant prête. Elle a été initialisée avec un utilisateur de pseudo « PseudoAdmin » et de mot de passe « PassAdmin ». Ne le supprimez pas tout de suite, il nous servira pour créer notre premier vrai utilisateur.
 
 • Tapez « localhost » dans votre barre de recherche. Vous voilà sur le site fonctionnel.
