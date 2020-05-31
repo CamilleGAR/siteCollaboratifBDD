@@ -1,15 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dossier</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="topbar">
+	<p>Gestion d'intervenants experts dans la formation</p>
+</div>
+</br>
+<div class="centeredblock">
+
 <?php
 session_start();
 include 'database.php';
 global $bdd;
+?><p id="greatings"><?php
 echo "Bonjour ".$_SESSION['prenom'];
+?></p><?php
 include 'deconnection.php';
 
 
 
 if ($_SESSION['role'] == 'Expert'){
 	?>
-	<a href="expert.php">Retour </a><br/>
+	<form action="expert.php">
+    	<input type="submit" value="Retour" />
+	</form>
 	<?php
 	$demande = $bdd->prepare("SELECT * FROM aide, utilisateurs WHERE aide.eleve = utilisateurs.pseudo AND aide.id = :id AND expert = :expert");
 	$demande ->execute([':id' => $_GET['id'], ':expert' => $_SESSION['pseudo']]);
@@ -20,7 +38,7 @@ if ($_SESSION['role'] == 'Expert'){
 		echo "adresse mail de l'eleve : ".$getEmail['email'];
 		?>
 	<form method="post"> 
-		<textarea name="message" rows="8" cols="45">Réponse</textarea><br/>
+		<textarea name="message" rows="8" cols="45" placeholder="Votre réponse"></textarea><br/>
 		<input type="submit" name="envoye" value="Envoyer"><br/>
 	</form>	
 	<?php
@@ -60,11 +78,14 @@ if ($_SESSION['role'] == 'Expert'){
 	else{
 		echo 'Vous ny avez pas acces';
 	}
+	
 }
 
 if ($_SESSION['role'] == 'Eleve'){
 	?>
-	<a href="eleve.php">Retour </a><br/>
+	<form action="eleve.php">
+    	<input type="submit" value="Retour" />
+	</form>
 	<?php
 	$demande = $bdd->prepare("SELECT * FROM aide, utilisateurs WHERE aide.expert = utilisateurs.pseudo AND aide.id = :id AND eleve = :eleve");
 	$demande ->execute([':id' => $_GET['id'], ':eleve' => $_SESSION['pseudo']]);
@@ -75,7 +96,7 @@ if ($_SESSION['role'] == 'Eleve'){
 		echo "adresse mail de l'expert : ".$getEmail['email'];
 		?>
 	<form method="post"> 
-		<textarea name="message" rows="8" cols="45">Réponse</textarea><br/>
+		<textarea name="message" rows="8" cols="45" placeholder="Votre réponse"></textarea><br/>
 		<input type="submit" name="envoye" value="Envoyer"><br/>
 	</form>	
 	<?php
@@ -116,5 +137,7 @@ if ($_SESSION['role'] == 'Eleve'){
 		echo "Vous n'y avez pas acces";
 	}
 }
-
 ?>
+</div>
+</body>
+</html>

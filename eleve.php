@@ -7,17 +7,26 @@ session_start();
 <head>
 	<title>Page eleve</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="eleve.css">
+	<link rel="stylesheet" href="style.css" />
 </head>
 <body>
+<div class="topbar">
+	<p>Gestion d'intervenants experts dans la formation</p>
+</div>
+</br>
 
-	<a href="index.php">Retour </a><br/>
+<div class="centeredblock">
+		<form action="index.php">
+    		<input type="submit" value="Retour" />
+		</form>
 
 	<?php
 	if (isset($_SESSION['role']) and $_SESSION['role'] == 'Eleve'){
 			include 'database.php';
 			global $bdd;
+			?><p id="greatings"><?php
 			echo "Bonjour ".$_SESSION['prenom'];
+			?></p><?php
 			include 'deconnection.php';
 
 		?>
@@ -41,7 +50,7 @@ session_start();
 			    			<option value="Anglais">anglais</option>
 	  					</optgroup>
 	  				</select><br/>	
-					<textarea name="message" rows="8" cols="45">Expliquez votre problème</textarea><br/>
+					<textarea name="message" rows="8" cols="45" placeholder="Expliquez votre problème"></textarea><br/>
 					<input type="submit" name="envoye" value="Envoyer"><br/>
 				</form>
 		<?php
@@ -66,10 +75,12 @@ session_start();
 	}
 
 	else{
+		?><p id="errortext"><?php
 		echo 'Vous n etes pas connectes en tant qu eleve';
+		?></p><?php
 	}
 ?>
-
+</div>
 
 
 </body>

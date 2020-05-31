@@ -1,0 +1,77 @@
+html{
+	font-family: sans-serif;
+}
+
+.topbar{
+	background-color: #e3e3e3;
+	font-size: 40px;
+	text-align: center;
+	padding: 1px;
+	font-weight: 600;
+}
+
+.centeredblock{
+	text-align: center;
+	width: 30%;
+	margin: auto;
+	background-color: #ccebd7;
+	padding: 50px;
+}
+
+#greatings{
+	font-size: 25px;
+	font-stretch: ultra-expanded;
+	font-weight: 600;
+}
+
+input[type=text]{
+	padding: 12px 20px;
+	margin: 8px 0;
+}
+
+input[type=password]{
+	padding: 12px 20px;
+	margin: 8px 0;
+}
+
+input[type=email]{
+	padding: 12px 20px;
+	margin: 8px 0;
+	width: 400px;
+}
+
+
+input[type=submit]{
+	background-color: #f0f0f0;
+	padding: 12px 20px;
+	margin: 8px 0;
+	border-radius: 8px;
+	font-size: 16px;
+}
+
+input[type=submit]:hover{
+	background-color: #e3e3e3;
+}
+
+select{
+	width: 200px;
+	height: 90px;
+
+}
+
+textarea{
+	padding: 12px 20px;
+	margin: 8px 0;
+}
+
+#errortext{
+	font-weight: 600; 
+	font-size:14px;
+	color: brown;
+}
+
+#goodtext{
+	font-weight: 600; 
+	font-size:14px;
+	color: forestgreen;
+}
